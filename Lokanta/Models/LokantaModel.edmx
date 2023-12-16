@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Lokanta2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="Kategori_Id" />
+          </Key>
+          <Property Name="Kategori_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kategori_Ad" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Masalar">
+          <Key>
+            <PropertyRef Name="Masa_Id" />
+          </Key>
+          <Property Name="Masa_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Masa_Ad" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Personeller">
+          <Key>
+            <PropertyRef Name="Personel_Id" />
+          </Key>
+          <Property Name="Personel_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adSoyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Masa_Id" Type="int" />
+          <Property Name="kul" Type="nvarchar" MaxLength="50" />
+          <Property Name="sifre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Siparisler">
+          <Key>
+            <PropertyRef Name="Siparis_Id" />
+          </Key>
+          <Property Name="Siparis_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Masa_Id" Type="int" />
+          <Property Name="Acilis_Tarih" Type="datetime" />
+          <Property Name="Kapanis_Tarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Yemek_Secim">
+          <Key>
+            <PropertyRef Name="Secim_Id" />
+          </Key>
+          <Property Name="Secim_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Siparis_Id" Type="int" />
+          <Property Name="Yemek_Id" Type="int" />
+          <Property Name="Adet" Type="int" />
+        </EntityType>
+        <EntityType Name="Yemekler">
+          <Key>
+            <PropertyRef Name="Yemek_Id" />
+          </Key>
+          <Property Name="Yemek_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Yemek_Ad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kategori_Id" Type="int" />
+          <Property Name="Fiyat" Type="money" />
+        </EntityType>
+        <EntityContainer Name="Lokanta2ModelStoreContainer">
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Masalar" EntityType="Self.Masalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personeller" EntityType="Self.Personeller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Siparisler" EntityType="Self.Siparisler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yemek_Secim" EntityType="Self.Yemek_Secim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yemekler" EntityType="Self.Yemekler" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Lokanta2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="Kategori_Id" />
+          </Key>
+          <Property Name="Kategori_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kategori_Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Masalar">
+          <Key>
+            <PropertyRef Name="Masa_Id" />
+          </Key>
+          <Property Name="Masa_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Masa_Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Personeller">
+          <Key>
+            <PropertyRef Name="Personel_Id" />
+          </Key>
+          <Property Name="Personel_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Masa_Id" Type="Int32" />
+          <Property Name="kul" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Siparisler">
+          <Key>
+            <PropertyRef Name="Siparis_Id" />
+          </Key>
+          <Property Name="Siparis_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Masa_Id" Type="Int32" />
+          <Property Name="Acilis_Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Kapanis_Tarih" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Yemek_Secim">
+          <Key>
+            <PropertyRef Name="Secim_Id" />
+          </Key>
+          <Property Name="Secim_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Siparis_Id" Type="Int32" />
+          <Property Name="Yemek_Id" Type="Int32" />
+          <Property Name="Adet" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Yemekler">
+          <Key>
+            <PropertyRef Name="Yemek_Id" />
+          </Key>
+          <Property Name="Yemek_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Yemek_Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kategori_Id" Type="Int32" />
+          <Property Name="Fiyat" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityContainer Name="Lokanta2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" />
+          <EntitySet Name="Masalar" EntityType="Self.Masalar" />
+          <EntitySet Name="Personeller" EntityType="Self.Personeller" />
+          <EntitySet Name="Siparisler" EntityType="Self.Siparisler" />
+          <EntitySet Name="Yemek_Secim" EntityType="Self.Yemek_Secim" />
+          <EntitySet Name="Yemekler" EntityType="Self.Yemekler" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Lokanta2ModelStoreContainer" CdmEntityContainer="Lokanta2Entities">
+          <EntitySetMapping Name="Kategoriler">
+            <EntityTypeMapping TypeName="Lokanta2Model.Kategoriler">
+              <MappingFragment StoreEntitySet="Kategoriler">
+                <ScalarProperty Name="Kategori_Id" ColumnName="Kategori_Id" />
+                <ScalarProperty Name="Kategori_Ad" ColumnName="Kategori_Ad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Masalar">
+            <EntityTypeMapping TypeName="Lokanta2Model.Masalar">
+              <MappingFragment StoreEntitySet="Masalar">
+                <ScalarProperty Name="Masa_Id" ColumnName="Masa_Id" />
+                <ScalarProperty Name="Masa_Ad" ColumnName="Masa_Ad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personeller">
+            <EntityTypeMapping TypeName="Lokanta2Model.Personeller">
+              <MappingFragment StoreEntitySet="Personeller">
+                <ScalarProperty Name="Personel_Id" ColumnName="Personel_Id" />
+                <ScalarProperty Name="adSoyad" ColumnName="adSoyad" />
+                <ScalarProperty Name="Masa_Id" ColumnName="Masa_Id" />
+                <ScalarProperty Name="kul" ColumnName="kul" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siparisler">
+            <EntityTypeMapping TypeName="Lokanta2Model.Siparisler">
+              <MappingFragment StoreEntitySet="Siparisler">
+                <ScalarProperty Name="Siparis_Id" ColumnName="Siparis_Id" />
+                <ScalarProperty Name="Masa_Id" ColumnName="Masa_Id" />
+                <ScalarProperty Name="Acilis_Tarih" ColumnName="Acilis_Tarih" />
+                <ScalarProperty Name="Kapanis_Tarih" ColumnName="Kapanis_Tarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yemek_Secim">
+            <EntityTypeMapping TypeName="Lokanta2Model.Yemek_Secim">
+              <MappingFragment StoreEntitySet="Yemek_Secim">
+                <ScalarProperty Name="Secim_Id" ColumnName="Secim_Id" />
+                <ScalarProperty Name="Siparis_Id" ColumnName="Siparis_Id" />
+                <ScalarProperty Name="Yemek_Id" ColumnName="Yemek_Id" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yemekler">
+            <EntityTypeMapping TypeName="Lokanta2Model.Yemekler">
+              <MappingFragment StoreEntitySet="Yemekler">
+                <ScalarProperty Name="Yemek_Id" ColumnName="Yemek_Id" />
+                <ScalarProperty Name="Yemek_Ad" ColumnName="Yemek_Ad" />
+                <ScalarProperty Name="Kategori_Id" ColumnName="Kategori_Id" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
